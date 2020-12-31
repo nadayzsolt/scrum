@@ -1,15 +1,28 @@
-# scrumpoker
+# Scrumpoker checklist
+
 Project planned to have the following endpoints:
 
 ~ Admin(-istrator)
-1. # Post Party (~ session/reset) 
-2. # Get Results of actual task (~ refresh)
+1. Post Party (first game within the ~session) 
+2. Get Results of actual task (~ refresh)
+3. Post reset (new game within the same party/
+   confirming results of previous game)
 
 ~ Plain User (Player)
-3. # Post name (for him-/herself)
-4. # Post points for actual task
-5. # Get Results of actual task/restart (if Admin made reset)
+4. Post name (for him-/herself)
+5. Post points for actual task
+6. Get redirected to Post points page (if Admin made reset already)
 
-Everyone
-6. # Get resultList by partyId
-7. # Get avg by taskNumber
+Everyone (preferably between two parties)
+7. Get resultList by partyId
+8. Get avg by taskNumber
+
+Other tasks:
+Entities: User, Task, Game
+EntityRepos: -||-
+Results (GameAvg, -list) shown
+DB
+Controller
+Service
+Unit- Integration-tests
+Docker

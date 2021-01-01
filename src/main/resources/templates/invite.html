@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Invite Page</title>
+</head>
+<body>
+<h1>Copy invitation link and send to your colleagues:</h1>
+<a th:href="'/join/' + ${randomEventNr}"><span th:text="'/join/' + ${randomEventNr}"></span></a>
+<h2>Ready? Follow their progress, and confirm the results: </h2>
+<a th:href="'/host/' + ${randomEventNr}">Jump to sprint task table!</a>
+</body>
+</html>

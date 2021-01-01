@@ -3,6 +3,7 @@ package com.scrumpoker.scrumpoker.models;
 import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
@@ -17,7 +18,7 @@ import lombok.NoArgsConstructor;
 @Table (name = "tasks")
 public class Task {
   @Id
-  @GeneratedValue
+  @GeneratedValue (strategy = GenerationType.IDENTITY)
   private long id;
   private String taskCode;
   private String taskDescription;
@@ -29,13 +30,9 @@ public class Task {
   @ManyToMany (mappedBy = "taskList")
   private List<User> userList;
 
-  public Task(String taskCode, String taskDescription, Sprint sprint,
-              List<Estimation> estimationList,
-              List<User> userList) {
+  public Task(String taskCode, String taskDescription, Sprint sprint) {
     this.taskCode = taskCode;
     this.taskDescription = taskDescription;
     this.sprint = sprint;
-    this.estimationList = estimationList;
-    this.userList = userList;
   }
 }

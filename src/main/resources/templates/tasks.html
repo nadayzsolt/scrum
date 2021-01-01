@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Task Creating Page</title>
+</head>
+<body>
+<form action="/taskCreate" method="post">
+    <label for="sprint">Sprint: </label>
+    <br>
+    <select name="sprintCode" id="sprint">
+        <option value="" selected disabled>Select sprint</option>
+        <option th:each="sprint : ${sprints}"
+                th:text="${sprint.sprintCode}"
+                th:value="${sprint.sprintCode}">
+        </option>
+    </select>
+    <br>
+    <label for="taskCode">Task code: </label>
+    <br>
+    <input type="text" name="taskCode" id="taskCode">
+    <br>
+    <label for="taskDescription">Task description: </label>
+    <br>
+    <textarea type="text" name="taskDescription" id="taskDescription" cols="40" rows="3"></textarea>
+    <br>
+    <button>Submit</button>
+    <br>
+</form>
+
+<div>Ready? Select sprint w/ tasks to be estimated throughout Scrumpoker:</div>
+<ul th:each="sprint : ${sprints}">
+    <li><a th:href="'/invite/' + ${sprint.randomEventNr}"><span th:text="${sprint.sprintCode}"></span></a></li>
+</ul>
+</body>
+</html>

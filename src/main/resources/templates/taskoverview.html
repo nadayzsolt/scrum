@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Task estimation overview</title>
+</head>
+<body>
+<h1 th:text="${task.taskCode}"></h1>
+<h3 th:text="${task.taskDescription}"></h3>
+<table>
+    <thead>
+    <th>User</th>
+    <th>Estimation</th>
+    </thead>
+    <tr th:each="item : ${taskestimations}">
+        <td th:text="${item.user?.name}"></td>
+        <td th:text="${item.amount}"></td>
+    </tr>
+</table>
+<h2>Average estimation: </h2>
+<span th:text="${avgEstimation}"></span>
+
+<label>If you want to change the average value: </label>
+<form th:action="'/alternativeavg/' + ${randomeventnr}" method="post">
+    <input type="text" name="amount">
+    <input type="hidden" name="taskId" th:value="${task.id}">
+    <button>Submit</button>
+</form>
+<a th:href="'/host/' + ${randomeventnr}">Back to the previous page.</a>
+</body>
+</html>

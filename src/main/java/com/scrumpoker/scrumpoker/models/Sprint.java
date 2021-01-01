@@ -3,6 +3,7 @@ package com.scrumpoker.scrumpoker.models;
 import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
@@ -16,7 +17,7 @@ import lombok.NoArgsConstructor;
 @Table (name = "sprints")
 public class Sprint {
   @Id
-  @GeneratedValue
+  @GeneratedValue (strategy = GenerationType.IDENTITY)
   private long id;
   private int randomEventNr;
   private String sprintCode;

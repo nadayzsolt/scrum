@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Host Task Table</title>
+</head>
+<body>
+<table>
+    <thead>
+    <th>Id</th>
+    <th>TaskCode</th>
+    <th>Description</th>
+    <th>Your estimation</th>
+    </thead>
+    <tr th:each="task : ${tasks}">
+        <td th:text="${task.id}"></td>
+        <td th:text="${task.taskCode}"></td>
+        <td th:text="${task.taskDescription}"></td>
+
+        <form th:action="'/input/' + ${randomeventnr} + '/' + ${userid}" method="post">
+            <td>
+                <input type="text" name="amount" placeholder="Provide whole numbers!">
+            </td>
+            <td>
+                <input type="hidden" name="taskId" th:value="${task.id}">
+                <button>Edit</button>
+            </td>
+        </form>
+
+    </tr>
+</table>
+</body>
+</html>

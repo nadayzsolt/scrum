@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+</head>
+<body>
+<form th:action="'/registry/' + ${randomeventnr}" method="post">
+    <label for="name">Existing or new username:</label>
+    <input type="text" id="name" name="name">
+    <button>Submit</button>
+</form>
+</body>
+</html>

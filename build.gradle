@@ -16,6 +16,9 @@ configurations {
 
 repositories {
     mavenCentral()
+    maven {
+        url 'https://repo.spring.io/libs-milestone'
+    }
 }
 
 dependencies {
@@ -28,6 +31,8 @@ dependencies {
     runtimeOnly 'mysql:mysql-connector-java'
     annotationProcessor 'org.projectlombok:lombok'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    compile 'org.springframework.mobile:spring-mobile-device:2.0.0.M3'
+    compile group: 'org.freemarker', name: 'freemarker', version: '2.3.14'
 }
 
 test {

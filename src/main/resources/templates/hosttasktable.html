@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Host Task Table</title>
+</head>
+<body>
+<table>
+    <thead>
+    <th>Id</th>
+    <th>TaskCode</th>
+    <th>Description</th>
+    <th>Link</th>
+    </thead>
+    <tr th:each="task : ${tasks}">
+        <td th:text="${task.id}"></td>
+        <td th:text="${task.taskCode}"></td>
+        <td th:text="${task.taskDescription}"></td>
+        <td><a th:href="'/host/' + ${randomeventnr} + '/' + ${task.id}"><span th:text="${task.taskCode}"></span></a></td>
+    </tr>
+</table>
+</body>
+</html>
